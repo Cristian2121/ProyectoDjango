@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario</title>
+</head>
+<body>
+    <div>
+        {% if request.user.is_authenticated %}
+            <div>
+                <a href="{% url 'cerrar_sesion' %}">Cerrar sesión</a>
+            </div>
+
+            <div>
+                <h1>Inventario de: {{ request.user.username }}</h1>
+                <div>
+                    <a href="{% url 'crear_producto' %}">Crear producto</a>
+                    <table>
+                        {% if productos %}
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                            </tr>
+
+                            {% for producto in productos %}
+                                <tr>
+                                    <td>{{ producto.nombre }}</td>
+                                    <td>{{ producto.precio }}</td>
+                                    <td>{{ producto.cantidad }}</td>
+                                    <td>
+                                        <a href="{% url 'ver' producto.id %}">Ver</a> &nbsp; | &nbsp;
+                                        <a href="{% url 'modificar' producto.id %}">Modificar</a> &nbsp; | &nbsp;
+                                        <a href="{% url 'eliminar' producto.id %}">Eliminar</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+                            <div>
+                                <h2>No hay productos registrados.</h2>
+                            </div>
+                        {% endif %}
+                    </table>
+                </div>
+            </div>
+        {% else %}
+            <h1>Inicie sesión para ver el inventario</h1>
+            <a href="{% url 'iniciar_sesion' %}">Ir al inicio de sesión</a>
+        {% endif %}
+    </div>
+</body>
+</html>

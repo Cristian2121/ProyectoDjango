@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+</head>
+<body>
+    <!--Formulario de registro-->
+    <div>
+        <form action="{% url 'iniciar_sesion' '1' %}" method="post"> {% csrf_token %}
+            {{ form_crear.as_table }}
+
+            <input type="submit" value="Registrarse" />
+        </form>
+    </div>
+    
+    <br />
+
+    <!--Formulario de inicio se sesión-->
+    <div>
+        <form action="{% url 'iniciar_sesion' '2' %}" method="post"> {% csrf_token %}
+            {{ form_iniciar.as_table }}
+
+            <input type="submit" value="Iniciar" />
+        </form>
+    </div>
+</body>
+</html>
