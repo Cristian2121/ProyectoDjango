@@ -76,13 +76,24 @@ WSGI_APPLICATION = 'SistemaDeInventario.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'inventario',
         'USER': 'postgres',
         'PASSWORD': 'root',
         'HOST': 'localhost',
+        'DATABASE_PORT': '5432',
+    }
+}"""
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd1i6g8sun8fsri',
+        'USER': 'spubzlnihiepcn',
+        'PASSWORD': 'b882f79de53085956863b5b730edb09bc506ddc9610fba66891fb763a6280a1b',
+        'HOST': 'ec2-3-219-19-205.compute-1.amazonaws.com',
         'DATABASE_PORT': '5432',
     }
 }
