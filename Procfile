@@ -1,1 +1,0 @@
-web gunicorn SistemaDeInventario.wsgi:application –log-file -
